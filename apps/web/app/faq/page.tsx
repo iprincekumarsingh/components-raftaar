@@ -5,7 +5,7 @@ import Image from "next/image";
 
 interface Props {}
 
-const Index: NextPage<Props> = ({}) => {
+const Faq: NextPage<Props> = ({}) => {
   const faqs = [
     {
       question: "How to install it with Windows Server?",
@@ -14,7 +14,8 @@ const Index: NextPage<Props> = ({}) => {
     },
     {
       question: "How to use it with other integrations?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ipsum sapien. Vestibulum molestie porttitor augue vitae vulputate. Aliquam nec ex maximus, suscipit diam vel, tristique tellus.",
+      answer:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ipsum sapien. Vestibulum molestie porttitor augue vitae vulputate. Aliquam nec ex maximus, suscipit diam vel, tristique tellus.",
     },
     {
       question: "How to download it?",
@@ -34,61 +35,65 @@ const Index: NextPage<Props> = ({}) => {
   };
 
   return (
-    <div className="container mt-20 bg-[#DFE8F7] md:bg-white mx-auto px-4 py-8">
-      <div className="text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-lg md:text-xl leading-7 md:leading-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-          ultricies sed, dolor.
-        </p>
+    <div className="container flex  flex-col justify-center items-center  bg-[#DFE8F7] md:bg-white mx-auto px-4 py-8">
+      <div className="w-full lg:w-[903px] mb-2 text-2xl text-start md:text-center text-slate-900 md:text-5xl font-normal font-['Larken-Bold']">
+        Frequently Asked Questions
+      </div>
+      <div className="lg:w-[903px] text-start md:text-center text-slate-900 text-sm md:text-2xl font-normal font-['Larken-Regular'] leading-9">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
+        sed, dolor.{" "}
       </div>
       <div className="flex flex-col justify-center items-center mt-10 md:flex-row gap-11">
         <div className="flex justify-center">
           <Image src="/faq.png" width={500} height={500} alt="FAQ" />
         </div>
-        <div className="w-full md:w-2/3">
+        <div className="md:w-[500px] full">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="mb-4 bg-[#F2F3F7] rounded-md overflow-hidden"
+              className={`mb-4  rounded-md overflow-hidden ${openIndex === index ? "bg-white border" : "bg-gray-100"}`}
             >
               <div
                 className="flex items-center justify-between cursor-pointer p-4"
                 onClick={() => handleToggle(index)}
               >
-                <h2 className="text-lg md:text-xl font-bold">{faq.question}</h2>
+                <h2
+                  className={`text-lg md:text-xl font-bold ${openIndex === index ? "text-[#3CC7F5]" : ""}`}
+                >
+                  {faq.question}
+                </h2>
                 <span>
                   {openIndex === index ? (
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
                       fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 15l7-7 7 7"
+                        d="M5 12.7916H19"
+                        stroke="black"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                       />
                     </svg>
                   ) : (
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      width="24"
+                      height="25"
+                      viewBox="0 0 24 25"
                       fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
+                        d="M12 5.63605V19.636M5 12.636H19"
+                        stroke="black"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                       />
                     </svg>
                   )}
@@ -105,4 +110,4 @@ const Index: NextPage<Props> = ({}) => {
   );
 };
 
-export default Index;
+export default Faq;

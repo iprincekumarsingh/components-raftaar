@@ -3,22 +3,17 @@ import Image from "next/image";
 import Index from "../faq/page";
 interface Props {}
 
-const Page: NextPage<Props> = ({}) => {
+const AboutPage: NextPage<Props> = ({}) => {
   return (
-    <div className="bg-white w-f h-[300px] z-20">
-      <div className="flex justify-center items-center h-full">
-      
-      </div>
-      <Service />
-      <Index/>
-      
+    <div>
+      <Service />;
     </div>
   );
 };
 
 const Service = () => {
   return (
-    <div className="bg-[#1E5CAB]   md:h-[556px] flex flex-col lg:flex-row  items-center justify-center ">
+    <div className="bg-[#1E5CAB]  md:h-[556px]  flex flex-col lg:flex-row  items-center justify-center ">
       <div className="w-full lg:w-1/2 p-3 mt-10 md:p-10 flex flex-col lg:gap-10">
         <div className="flex flex-col gap-5 justify-start">
           <h1 className="text-white text-2xl md:text-4xl font-bold ">
@@ -47,12 +42,11 @@ const Service = () => {
             />
           </div>
 
-          <div className="relative  bottom-10 md:bottom-24 left-44  w-fit md:left-80">
+          <div className="relative  bottom-8 md:bottom-24 left-44  w-fit md:left-80">
             <img
               src="/image2.png"
-           
               alt="Image 2"
-              className="w-[250px]  md:w-[200px]  lg:w-[400px]"
+              className="w-[200px]  md:w-[200px]  lg:w-[400px]"
               //className="w-full"
             />
           </div>
@@ -62,4 +56,4 @@ const Service = () => {
   );
 };
 
-export default Page;
+export default AboutPage;
