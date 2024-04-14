@@ -180,6 +180,37 @@ const Page: NextPage<Props> = ({}) => {
           />
         </div>
       </div>
+      <div className="bg-[#1E5CAB] mt-20  w-full  md:h-[556px]  flex flex-col lg:flex-row  items-center justify-center ">
+        <div className="w-full  p-3 mt-10 md:p-10 flex flex-col lg:gap-10">
+          <div className="flex flex-col gap-5 justify-start">
+            <h1 className="text-white text-2xl md:text-4xl font-bold ">
+              We make finest architectural <br></br> design with great passion
+            </h1>
+            <p className="text-white text-sm md:text-2xl  font-normal ">
+              Lorem ipsum dolor sit amet, consectetur adipiscing <br></br> elit.
+              Sed non risus. Suspendisse lectus tortor, <br></br> dignissim sit
+              amet, adipiscing nec, ultricies sed, dolor.
+            </p>
+            <div className="text-2xl flex  items-center justify-center md:justify-start gap-3 font-bold text-black md:text-white bg-white md:bg-transparent w-1/2 ">
+              <h1 className="text-center">Contact us</h1>
+              <img src="/arrow.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="flex flex-col lg:mt-4">
+            <div className="relative right-44 mt-20 md:mt-0 md:-top-40 m px-10 lg:px-2">
+              <img
+                src="/image1.png"
+                width={800}
+                height={400} // Adjust the height as per your image aspect ratio
+                alt="Image 1"
+                className="w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
