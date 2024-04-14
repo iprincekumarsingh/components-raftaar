@@ -42,7 +42,7 @@ const Service = () => {
             />
           </div>
 
-          <div className="relative  bottom-8 md:bottom-24 left-44  w-fit md:left-80">
+          <div className="relative  bottom-8 md:bottom-24 left-40 w-fit md:left-80">
             <img
               src="/image2.png"
               alt="Image 2"

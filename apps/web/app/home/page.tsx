@@ -5,6 +5,7 @@ import Faq from "../faq/page";
 import AboutPage from "../about/page";
 import Product from "./product";
 import Blog from "../blogs/page";
+import Testimonials from "../testimonials/page";
 
 interface Props {}
 
@@ -61,6 +62,7 @@ const Page: NextPage<Props> = ({}) => {
       <ClientCard images={images} />
       <AboutPage />
       <Faq />
+      <Testimonials />
       <Blog />
     </div>
   );

@@ -37,17 +37,22 @@ const ClientCard: NextPage<Props> = ({}) => {
     const container = containerRef.current;
     const scroll = () => {
       if (container) {
+        const newPosition = container.scrollLeft + imageWidth;
+        const maxScrollLeft = container.scrollWidth - container.clientWidth;
+        const nextPosition = newPosition > maxScrollLeft ? 0 : newPosition;
         container.scrollTo({
-          left: scrollPosition,
+          left: nextPosition,
           behavior: "smooth",
         });
+        setScrollPosition(nextPosition);
       }
     };
-
+  
     const intervalId = setInterval(scroll, 3000); // Adjust scroll interval as needed
-
+  
     return () => clearInterval(intervalId);
-  }, [scrollPosition]);
+  }, []);
+  
 
   return (
     <div className="relative bg-[#DFE8F7] w-full h-auto md:h-[606.64px] py-10">
@@ -69,7 +74,7 @@ const ClientCard: NextPage<Props> = ({}) => {
           />
           <div
             ref={containerRef}
-            className="flex mx-20 overflow-hidden items-center gap-5"
+            className="flex mx-20 overflow-x-hidden items-center gap-5"
             id="imageWrapper"
           >
             {/* Your image components */}

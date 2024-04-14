@@ -35,8 +35,8 @@ const Faq: NextPage<Props> = ({}) => {
   };
 
   return (
-    <div className="container flex  flex-col justify-center items-center  bg-[#DFE8F7] md:bg-white mx-auto px-4 py-8">
-      <div className="w-full lg:w-[903px] mb-2 text-2xl text-start md:text-center text-slate-900 md:text-5xl font-normal font-['Larken-Bold']">
+    <div className="w-full  flex  flex-col justify-center items-center px-6 lg:px-[79px]  bged md:bg-white mx-auto  py-8">
+      <div className="w-full  mb-2 text-2xl text-start md:text-center text-slate-900 md:text-5xl font-normal font-['Larken-Bold']">
         Frequently Asked Questions
       </div>
       <div className="lg:w-[903px] text-start md:text-center text-slate-900 text-sm md:text-2xl font-normal font-['Larken-Regular'] leading-9">
@@ -46,7 +46,7 @@ const Faq: NextPage<Props> = ({}) => {
       </div>
       <div className="flex flex-col justify-center items-center mt-10 md:flex-row gap-11">
         <div className="flex justify-center">
-          <Image src="/faq.png" width={500} height={500} alt="FAQ" />
+          <Image src="/faq.png" width={606} height={614} alt="FAQ" />
         </div>
         <div className="md:w-[500px] full">
           {faqs.map((faq, index) => (
