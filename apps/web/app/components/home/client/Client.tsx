@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 interface Props {}
 
-const ClientCard: NextPage<Props> = ({}) => {
+const ClientCard: NextPage<Props> = ({ ...clientImages }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const imageWidth = 300; // Width of each image
@@ -47,12 +47,11 @@ const ClientCard: NextPage<Props> = ({}) => {
         setScrollPosition(nextPosition);
       }
     };
-  
+
     const intervalId = setInterval(scroll, 3000); // Adjust scroll interval as needed
-  
+
     return () => clearInterval(intervalId);
   }, []);
-  
 
   return (
     <div className="relative bg-[#DFE8F7] w-full h-auto md:h-[606.64px] py-10">
@@ -78,12 +77,13 @@ const ClientCard: NextPage<Props> = ({}) => {
             id="imageWrapper"
           >
             {/* Your image components */}
-            {[...Array(10)].map((_, index) => (
+
+            {clientImages.images.map((image, index) => (
               <img
                 key={index}
                 className="w-56 h-32 md:w-72 md:h-40"
-                src="/client1.png"
-                alt="Placeholder"
+                src={image.src}
+                alt={image.alt}
               />
             ))}
           </div>

@@ -32,10 +32,9 @@
   scroll-behavior: smooth;
 }
 
-
 .infinite-scroll {
   animation: scroll 20s linear infinite;
 }
 .infinite-scrollX {
-  animation: scrollX 30s linear infinite;
+  animation: scrollX 10s linear both infinite;
 }

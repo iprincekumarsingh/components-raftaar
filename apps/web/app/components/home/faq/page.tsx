@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
+import { JSXElementConstructor, Key, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useState } from "react";
 import { NextPage } from "next";
 import Image from "next/image";
 
 interface Props {}
 
-const Faq: NextPage<Props> = ({}) => {
+const Faq: NextPage<Props> = ({ ...faqData }) => {
   const faqs = [
     {
       question: "How to install it with Windows Server?",
@@ -35,21 +35,19 @@ const Faq: NextPage<Props> = ({}) => {
   };
 
   return (
-    <div className="w-full  flex  flex-col justify-center items-center px-6 lg:px-[79px]  bged md:bg-white mx-auto  py-8">
+    <div className="w-full  mt-14 flex  flex-col justify-center items-center px-6 lg:px-[79px]  bged md:bg-white mx-auto  py-8">
       <div className="w-full  mb-2 text-2xl text-start md:text-center text-slate-900 md:text-5xl font-normal font-['Larken-Bold']">
-        Frequently Asked Questions
+        {faqData.title}
       </div>
       <div className="lg:w-[903px] text-start md:text-center text-slate-900 text-sm md:text-2xl font-normal font-['Larken-Regular'] leading-9">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-        Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies
-        sed, dolor.{" "}
+        {faqData.subTitle}
       </div>
       <div className="flex flex-col justify-center items-center mt-10 md:flex-row gap-11">
         <div className="flex justify-center">
-          <Image src="/faq.png" width={606} height={614} alt="FAQ" />
+          <img src={faqData.mainImage} width={606} height={614} alt="FAQ" />
         </div>
         <div className="md:w-[500px] full">
-          {faqs.map((faq, index) => (
+            {faqData.faqs && faqData.faqs.map((faq: { question: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; answer: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | PromiseLikeOfReactNode | null | undefined; }, index: Key | null | undefined) => (
             <div
               key={index}
               className={`mb-4  rounded-md overflow-hidden ${openIndex === index ? "bg-white border" : "bg-gray-100"}`}
