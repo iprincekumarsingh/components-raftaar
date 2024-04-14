@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import ClientCard from "../components/home/client/Client";
 import BlogPage from "../components/home/blogs/page";
-import Faq from "../components/home/faq/page";
+import Faq from "../components/home/faq/Faq";
 import AboutPage from "../about/page";
 import Product from "../components/home/how-can-we-help-you/page";
 import Blog from "../components/home/blogs/page";
