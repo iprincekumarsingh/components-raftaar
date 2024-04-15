@@ -34,16 +34,19 @@ const Blog: NextPage<Props> = ({ blogData }) => {
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden h-auto px-8 pt-12 pb-24 flex flex-col justify-center items-center">
+    <div className="w-full overflow-x-hidden h-auto px-8 pt-12 pb-24 flex flex-col md:justify-center md:items-center">
       <div className="w-full">
-        <div className="text-center text-sky-400 text-[22px] pt-[11px] font-normal font-['Larken-Medium'] uppercase leading-relaxed">
+        <div className="text-start md:text-center text-sky-400 text-[22px] pt-[11px] font-normal font-['Larken-Medium'] uppercase leading-relaxed">
           Our Blogs
         </div>
-        <div className="text-center text-zinc-900 text-[38px] font-bold font-['Larken-Bold'] leading-[44px]">
+        <div className=" text-start md:text-center text-zinc-900 text-[38px] font-bold font-['Larken-Bold'] leading-[44px]">
           Read Our Latest Articles
         </div>
-        <div className="w-full mt-10 no-scrollbar overflow-x-auto scroll-auto whitespace-no-wrap bg-[#D9D9D9]" ref={containerRef}>
-          <div className="flex flex-nowrap space-x-4">
+        <div
+          className="w-full mt-10 lg:no-scrollbar lg:overflow-x-auto lg:scroll-auto whitespace-no-wrap "
+          ref={containerRef}
+        >
+          <div className="flex flex-col md:flex-row lg:flex-nowrap md:space-x-4 gap-3">
             {blogData.map((data, index) => (
               <BlogCard key={index} {...data} />
             ))}
@@ -54,23 +57,33 @@ const Blog: NextPage<Props> = ({ blogData }) => {
   );
 };
 
-const BlogCard: React.FC<BlogData> = ({ title, subTitle, date, comment, description, admin }) => {
+const BlogCard: React.FC<BlogData> = ({
+  title,
+  subTitle,
+  date,
+  comment,
+  description,
+  admin,
+}) => {
   return (
-    <div className="w-[416px] h-[440.34px] px-[30px] pt-[37px] pb-12 bg-white shadow flex-col justify-start items-start inline-flex">
-      <div className="w-[356px] h-[355.34px] relative">
-        <div className="h-[106px] pb-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex">
-          <div className="pr-[13.58px] justify-start items-start inline-flex">
+    <div className= "w-full md:w-[416px] px-2 h-[440.34px] md:px-[30px] pt-[37px] md:pb-12 bg-white shadow flex-col justify-start items-start inline-flex gap-3">
+      <div className="w-full flex flex-col justify-center items-center lg:w-[356px] md:h-[357.34px] relative ">
+        <div className="lg:h-[106px] pb-[30px] left-0 top-0 absolute flex-col justify-start items-start inline-flex">
+          <div className="w-full  lg:pr-[13.58px] justify-start items-start inline-flex">
             <div className="text-gray-950 text-xl font-bold font-['Larken-Bold'] leading-[38px]">
-              {title} {subTitle}
+              {title}
+               {subTitle}
             </div>
           </div>
         </div>
         <div className="w-full flex items-start justify-start h-[27px] left-0 top-[106px] absolute">
           <div className="flex items-center gap-2 h-[26px] top-[1px] absolute text-[#747474] text-[15px] font-normal font-['Larken-Regular'] leading-relaxed">
-            <img src="/__before.png" className="w-[17px] h-[17px]" alt="" /> {date}
+            <img src="/__before.png" className="w-[17px] h-[17px]" alt="" />{" "}
+            {date}
           </div>
           <div className="flex items-center gap-2 h-[26px] left-[161.66px] top-[1px] absolute text-[#747474] text-[15px] font-normal font-['Larken-Regular'] leading-relaxed">
-            <img src="/__comment.png" className="w-[17px] h-[17px]" alt="" /> {comment}
+            <img src="/__comment.png" className="w-[17px] h-[17px]" alt="" />{" "}
+            {comment}
           </div>
         </div>
         <div className="h-[127px] pr-[24.75px] pb-[31px] left-0 top-[153px] absolute border-b border-neutral-200 flex-col justify-start items-start inline-flex">
@@ -85,7 +98,11 @@ const BlogCard: React.FC<BlogData> = ({ title, subTitle, date, comment, descript
             </div>
           </div>
         </div>
-        <img className="w-10 h-10 left-[5px] top-[312.22px] absolute rounded-full" src="https://via.placeholder.com/40x40" alt="" />
+        <img
+          className="w-10 h-10 left-[5px] top-[312.22px] absolute rounded-full"
+          src="https://via.placeholder.com/40x40"
+          alt=""
+        />
         <div className="pb-[0.50px] left-[181px] top-[318.50px] absolute justify-start items-center inline-flex">
           <div className="flex items-center justify-center gap-4 text-gray-950 text-base font-normal font-['Larken-Medium'] leading-relaxed">
             Learn More <img src="./Icon.png" className="w-4 h-4" alt="" />

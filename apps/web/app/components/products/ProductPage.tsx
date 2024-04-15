@@ -19,39 +19,52 @@ const ProductPage: NextPage<Props> = ({ productData }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
             {productData.map((product, index) => (
               <Card
-                    key={index}
-                    productName={product.productName}
-                    productDescription={product.productDescription}
-                    imageUrl={product.imageUrl} onClick={function (): void {
-                        throw new Error("Function not implemented.");
-                    } }              />
+                key={index}
+                productName={product.productName}
+                productDescription={product.productDescription}
+                imageUrl={product.imageUrl}
+                onClick={function (): void {
+                  throw new Error("Function not implemented.");
+                }}
+              />
             ))}
           </div>
         </div>
       </div>
-      <div className="hidden md:flex h-[556px] relative bg-blue-800 py-10">
-        <div className="h-[301px] left-[79px] top-[127.50px] absolute flex-col justify-start items-start gap-6 inline-flex">
-          <div className="w-[584px] h-[301px] flex-col justify-start items-start gap-6 inline-flex">
-            <div className="self-stretch text-white text-[40px] font-normal font-['Larken-Bold']">
+      <div className="bg-[#1E5CAB] h-auto  md:h-[706px]   flex flex-col lg:flex-row  items-center justify-center ">
+        <div className="w-full md:w-[584px] p-3 mt-10 md:p-10 flex flex-col lg:gap-10">
+          <div className="flex flex-col gap-5 justify-start">
+            <h1 className="text-white text-2xl md:text-4xl font-bold ">
               We make finest architectural design with great passion
-            </div>
-            <div className="self-stretch text-white text-2xl font-normal font-['Figtree'] leading-[30px]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor.{" "}
-            </div>
-            <div className="px-6 py-4 bg-blue-800 justify-center items-center gap-2.5 inline-flex">
-              <div className="text-white text-2xl font-bold font-['Archivo'] leading-[25px]">
+            </h1>
+            <p className="text-white text-sm md:text-2xl  font-normal ">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Praesentium hic impedit omnis minima quaerat eveniet officiis
+              rerum est amet necessitatibus.
+            </p>
+            <div className="w-[157.50px] h-[43px] px-[18px] py-3 bg-white justify-center items-center gap-[7.50px] inline-flex">
+              <div className="text-slate-900 text-lg font-bold font-['Archivo'] leading-[18.75px]">
                 Contact Us
               </div>
-              <div className="w-6 h-6 relative" />
+              <div className="w-[18px] h-[18px] relative">
+                <img src="./arrowBlack.svg" alt="" />
+              </div>
             </div>
           </div>
         </div>
-        <img
-          className="lg:w-[500px] h-[642px] lg:left-[800px] 2xl/2:left-[990px] 3xl:left-[1210px] top-[-126px] absolute border-8 border-white"
-          src="https://via.placeholder.com/654x642"
-        />
+        <div className="flex justify-center mb-10">
+          <div className="flex flex-col lg:mt-4">
+            <div className="relative to-14  lg:px- border-8 border-white">
+              <img
+                className="w-[380.64px] md:w-[686px] lg:h-[619px]"
+                src="https://s3-alpha-sig.figma.com/img/7fb0/cfc1/0e87bd1e664d7d447307e274003434cd?Expires=1714348800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=h3PaYpfQ-l14Ja~O-UM4TzWrPCei85bOeXIPFncej6dw-ZxbtFhiujRSVEZZN5vGc4pC8qBdOCELpBvs5iAq3yNa7unp-lC3j4wMXtD7VCqywuCwFV-zwzGiEKeIY2eHpCGnMT8lXVY7rTroiMvoqj-f2w5pLRtTr-eE9iDp3T7fT2rhG234d2k9iLsY9PED6aqN8UZLTduangnPRWg3phTghNLHRLDPjOSLaUQjS~UesQDx1PubXvf6nxdn0U0ANdp3Mv3Xtr9AElJkneYA46FUgXrBjYAgQnARWW0DbW0IPQmVsbY8hmSGyWxLG-sq~zZooTFDzX0-gQTwc0ftaQ__"
+                alt="Main Image"
+                // width={686}
+                // height={619}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

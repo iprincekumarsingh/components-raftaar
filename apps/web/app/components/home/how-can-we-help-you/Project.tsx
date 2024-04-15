@@ -9,11 +9,31 @@ interface Props {
 const Project: NextPage<Props> = ({ projectData }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    let animationFrameId: number;
+
+    const scroll = () => {
+      if (container) {
+        container.scrollLeft += 1; // Increase the scrollLeft property to scroll right
+        // Loop the scrolling animation
+        animationFrameId = requestAnimationFrame(scroll);
+      }
+    };
+
+    // Start scrolling animation
+    scroll();
+
+    // Clean up animation frame on component unmount
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
   return (
-    <div className=" flex flex-col items-center">
+    <div className=" w-full flex justify-center items-center">
       <div
         ref={containerRef}
-        className="w-auto flex justify-center items-center py-3 infinite-scrollX"
+        className="w-full flex overflow-hidden py-3 "
+        style={{ scrollBehavior: "smooth" }}
       >
         {projectData.map((project, index) => (
           <ProjectCard
@@ -24,11 +44,6 @@ const Project: NextPage<Props> = ({ projectData }) => {
             image={project.image}
           />
         ))}
-      </div>
-      <div className="w-[202px] h-[57px] px-6 py-4 bg-blue-800 rounded-lg justify-center items-center gap-2.5 inline-flex">
-        <div className="text-white text-xl font-semibold font-['Archivo'] leading-[25px]">
-          View All Projects
-        </div>
       </div>
     </div>
   );

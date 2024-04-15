@@ -73,7 +73,7 @@ const ClientCard: NextPage<Props> = ({ ...clientImages }) => {
           />
           <div
             ref={containerRef}
-            className="flex mx-20 overflow-x-hidden items-center gap-5"
+            className="flex md:mx-5 lg:mx-20 overflow-x-hidden items-center gap-5"
             id="imageWrapper"
           >
             {/* Your image components */}
@@ -95,7 +95,7 @@ const ClientCard: NextPage<Props> = ({ ...clientImages }) => {
           />
         </div>
         <div className="flex gap-4 mt-20">
-          {[...Array(10)].map((_, index) => (
+          {clientImages.images.map((image, index) => (
             <div
               key={index}
               className={`w-[20px] h-[20px] rounded-full cursor-pointer ${

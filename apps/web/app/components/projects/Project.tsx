@@ -1,10 +1,20 @@
 // Project.tsx
-"use client"
+"use client";
 import React from "react";
 
 interface ProjectData {
-  ongoingProjects: { title: string; description: string; image: string; status: string }[];
-  completedProjects: { title: string; description: string; image: string; status: string }[];
+  ongoingProjects: {
+    title: string;
+    description: string;
+    image: string;
+    status: string;
+  }[];
+  completedProjects: {
+    title: string;
+    description: string;
+    image: string;
+    status: string;
+  }[];
 }
 
 const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
@@ -15,7 +25,7 @@ const Project: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
   };
 
   return (
-    <div className="flex w-full flex-col px-2 m-4 gap-10 justify-center items-center">
+    <div className="flex w-full flex-col px-2 m-4 gap-10 justify-center items-center overflow-hidden">
       <div className="flex flex-col justify-center items-center mt-2 mb-2">
         <div className="mt-10 border-b border-gray-200">
           <div className="flex justify-center gap-5">
@@ -110,15 +120,21 @@ const CardProject: React.FC<{
   const cardClass = flip ? "flipped-card" : "";
 
   const imageSection = (
-    <div className="md:w-[569px] w-full md:h-[753px] relative left-20 md:left-0 rounded-xl flex justify-center items-center">
+    <div
+      className={`md:w-[569px] w-full md:h-[753px] relative  md:left-2 rounded-xl flex justify-center items-center  `}
+    >
       <div
         className={`w-[203px] h-[374px] md:w-[569px] md:h-[866px] relative md:absolute ${
-          flip ? "md:left-[64px] relative md:right-[-15px] -left-14 md:top-[-58.50px] bg-blue-800 rounded-r-3xl" : "relative -left-[140px] md:left-[-56px] md:top-[-58.50px]  rounded-l-3xl bg-[#3CC7F5]"
+          flip
+            ? "left-[33px] md:left-[74px] relative md:right-[-px]  md:top-[-58.50px] bg-blue-800 rounded-r-3xl"
+            : "relative -left-[33px] md:left-[-65px] md:top-[-56.56px]  rounded-l-3xl bg-[#3CC7F5]"
         } flex-col justify-center items-center`}
       />
       <div
-        className={`w-[262.62px] md:w-[569px] h-[347.12px] md:h-[818.45px] left-0 md:top-[-35.50px] absolute flex-col justify-center items-center inline-flex ${
-          flip ? "md:left-0 -left-14 md:top-[-50.50px]" : "-left-5 md:top-[-50.50px]"
+        className={`w-[262.62px] md:w-[569px] h-[347.12px] md:h-[818.45px] left-0 md:top-[-35.5px] absolute flex-col justify-center items-center inline-flex ${
+          flip
+            ? "md:left-0 -left-14 md:top-[-50.50px]"
+            : "left-30 md:top-[-50.50px]"
         }`}
       >
         <img
@@ -156,10 +172,14 @@ const CardProject: React.FC<{
     </div>
   );
 
-  const content = flip ? [textSection, imageSection] : [imageSection, textSection];
+  const content = flip
+    ? [textSection, imageSection]
+    : [imageSection, textSection];
 
   return (
-    <div className={`w- h-auto flex flex-col mx-4 md:w-[1280px] md:h-[865px] h p-4 md:p-14 rounded-3xl shadow border border-gray-200 md:flex-row justify-center items-center gap-14 ${cardClass}`}>
+    <div
+      className={`w- h-auto flex flex-col mx-4 md:w-[1280px] md:h-[865px] h p-4 md:p-14 rounded-3xl shadow border border-gray-200 md:flex-row justify-center items-center gap-14 ${cardClass}`}
+    >
       {content.map((section, index) => (
         <React.Fragment key={index}>{section}</React.Fragment>
       ))}
